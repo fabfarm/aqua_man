@@ -6,9 +6,9 @@ I want to implement a system to messure the current waterlevel of a watertank wi
 There are to large watertanks with a total volume of 2000 liters installed half way up the mountain for a fresh water supply. From there we supply all the facilities of the FabFarm. The watertanks are connect to the waterpump thats installed in the valley of the farm. The waterpump is already integrated into the home assistant network through a relay thats connected to a microcontroller.
 
 <p align="center">
-  <img src="./images/watertank_side.jpg" width="33%" />
-  <img src="./images/watertank_top.jpg" width="33%" align="left"/> 
-  <img src="./images/watertank_front.jpg" width="33%" align="right"/>
+  <img src="./images/watertank-side.jpeg" width="33%" />
+  <img src="./images/watertank-top.jpeg" width="33%" align="left"/> 
+  <img src="./images/watertank-front.jpeg" width="33%" align="right"/>
 </p>
 
 ## Goal and Requirments
@@ -30,7 +30,7 @@ Based on the requirments I came up with the following compontants:
 ### ESP01
 
 <p align="left">
- <img src="./images/esp01.jpg" width="33%" />
+ <img src="./images/esp01.jpeg" width="33%" />
 </p>
 
  The [ESP01 (Datasheet)](/datasheets/ESP01.PDF) is a type of low-cost Wi-Fi microcontroller module.  It is based on the ESP8266 chip and is small in size, making it a good choice for this project. Furthermore is works on 3.3 V and need only little power.
@@ -38,9 +38,9 @@ Based on the requirments I came up with the following compontants:
 
 ### Grove - Ultrasonic Ranger V2.0
 
-<p align="left">
- <img src="./images/grove_front.jpg" width="33%" />
- <img src="./images/grove_back.jpg" width="33%" />
+<p align="center">
+ <img src="./images/grove-front.jpeg" width="33%" />
+ <img src="./images/grove-back.jpeg" width="33%" />
 </p>
 
  This [Sensor (Website)](https://wiki.seeedstudio.com/Grove-Ultrasonic_Ranger/) uses ultrasound to mesure the distance to an object or surface. Unlike the well known HC-SR04 sensor this one works with 3.3 V and trig and echo signal share 1 SIG pin. Therefore it can share the same power supply then the ESP.
@@ -53,10 +53,10 @@ Based on the requirments I came up with the following compontants:
 ### TP4056
 
 <p align="center">
- <img src="./images/tp4056.jpg" width="33%" />
+ <img src="./images/tp4056.jpeg" width="33%" />
 </p>
 
-Linear Li-Ion battery charger IC with a constant-current and constant-voltage charging algorithm, thermal regulation, and charge status indication. It 
+Linear Li-Ion battery charger IC with a constant-current and constant-voltage charging algorithm, thermal regulation, and charge status indication.
 
 
 
@@ -65,9 +65,11 @@ Linear Li-Ion battery charger IC with a constant-current and constant-voltage ch
 
 ## Resources
 1) [ESP Home Custom Sensor Component](https://esphome.io/custom/custom_component.html)
-2) 
 
-## Future Versions and Improvments
-1) Enable DeepSleep on ESP01 to decrease power consumption (https://www.instructables.com/Enable-DeepSleep-on-an-ESP8266-01/)
-2) Remove LEDs Indicator on ESP01 to decrease power consumption (https://quadmeup.com/esp8266-esp-01-low-power-mode-run-it-for-months/)
-3) Integrate Battery Power Status with Voltage Divider (4.2 VMAX Battery Cell and GPIO with 3.3VMAX)
+## Tasks and Improments
+- [ ] [Enable deep sleep on ESP01](https://www.instructables.com/Enable-DeepSleep-on-an-ESP8266-01/)
+- [ ] [Remove LEDs from ESP](https://quadmeup.com/esp8266-esp-01-low-power-mode-run-it-for-months/)
+- [ ] Remove battery indicator circuit. (Not working with GPIO 0 of ESP)
+- [ ] Integrate heatmanagment for the hole system
+- [ ] Dokumentation of Hardwaresetup
+- [ ] Dokumentation of Softwaresetup
