@@ -97,9 +97,68 @@ This Solar Panel will generate the needed energy for the system and will charge 
 
 ## Hardware Design
 
-I used a little wooden board as the mount for the components. With glue I connected the board to the plastic jar, which works as awater proof container.
+I used a little wooden board as the mount for the components. I used With glue I connected the board to the plastic jar, which works as awater proof container. 
 
-### 
+### Circuit Design
+
+<p align="center">
+<img src="./images/circuit-diagram.jpeg" width="100%" />
+</p>
+
+### Instructions
+
+<p align="center">
+<img src="./images/build1.jpeg" width="30%" />
+<img src="./images/build2.jpeg" width="30%" />
+<img src="./images/build3.jpeg" width="30%" />
+</p>
+
+<p align="center">
+<img src="./images/build4.jpeg" width="30%" />
+<img src="./images/build5.jpeg" width="30%" />
+
+</p>
+
+1) Cut out the wooden plate fitting height and diameter of the plastic jar.
+2) Essamble the components on the wooden plate. Use the circuit diagram for arragment. Use a header pin strip for mounting the ESP to the circuit. Thereby the ESP can later be programmed with the ESP Programmer.
+3) Find a suitable spot for the battery based on the design. 
+4) Drill two holes for reciever and transmitter of the ultrasonic sensor.
+5) Solder the components based on the circuit diagram.
+6) Use glue to attach the wooden plate to the lid of the plastic jar.
+7) Drill a hole and pass through the cable for the solar panel.
+
+## Software Design
+
+This Documentation does not cover the setup of home assisant, which is a open-source platform for automating smart home devices and building custom solutions for home automation. I use ESPHome, which is an open-source platform for creating custom firmware for ESP8266 and ESP32-based devices for use with Home Assistant. It uses YAML configuration files for defining the device's behavior and automations. It is possible to run ESPHome standalone for development purpose. I used Docker for setting up ESPHome on my machine to not 
+accidentally destroy the local Home Assistant Server.
+
+### Environment (Docker with ESPHome)
+
+Follow along with the officale [*Getting Started with the ESPHome Command Line*](https://esphome.io/guides/getting_started_command_line.html#getting-started-with-the-esphome-command-line) Guide. Currently the Ultrasonic Ranger V2.0 is not supported in the default libary of EPPHome. However, it is possible to create a [Custom Sensor Component](https://esphome.io/components/sensor/custom.html). We need to integrate the Ultrasonic libary in the esphome/config/ folder of ESPHome. Therefore we run the ESPHome Container with a mounted host volume:
+
+
+```
+docker run -it -v [/host/volume/location]:[/container/storage] -p [host_ip]:[host_port]:[container_port] [docker_image]
+```
+
+Using the `-it` flag for interactive mode to keep the terminal up and get information on the server. The `-v` flag for mounting the local folder to the container. `-p` for binding the localhost port to the container.
+
+
+Use this command with the repo on your Desktop or change the file path accordingly. Make sure that local folder exists by creating an empty folder or directly use the repo.
+
+```
+docker run -it -v /Users/[User]/Desktop/aqua_man/esphome/config:/config -p 6052:6052 esphome/esphome
+```
+
+### Add Liberies
+
+Next up add the **Ultrasonic.h** and **Ultrasonic.cpp** files to the `/config` folder. It holds the nessasy Code for compling the application and create the firmware of the ESP. After installing connect the device to the Network. From now on you can flash the device via the Network ()
+
+### Flash ESP01
+
+Connect the ESP Programmer with your Computer and Plug the ESP01 in. Open up https://web.esphome.io/ in a browser that supports Serial Port. Connect the Device and click "PREPARE FOR FIRST USE". This will flash the ESP with the firmware so you can adopt it to the ESPHome Dashboard.
+
+
 
 
 
