@@ -1,0 +1,28 @@
+esphome:
+  name: esphome-web-c2c14a
+
+esp8266:
+  board: esp01_1m
+
+# Enable logging
+logger:
+
+# Enable Home Assistant API
+api:
+  encryption:
+    key: "ys5GEI1tk7QFzEdXtV1yo9EXFaiZYnRYCMmF5sew4PQ="
+
+ota:
+  password: "47a1585f1a58f4f7cb33a2eaeac0adc1"
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Test Fallback Hotspot"
+    password: "7Hx5sTfC1JBB"
+
+captive_portal:
+    
